@@ -1,7 +1,9 @@
 def setup():
     size(640, 480)
-    global dinosaur
-    dinosaur = loadImage("dinosaur.png")
+    global dinosaur1, dinosaur2, gallo
+    dinosaur1 = loadImage("dinorun0000.png")
+    dinosaur2 = loadImage("dinorun0001.png")
+    gallo = loadImage("11080017.jpeg")
 
 
 def draw():
@@ -11,14 +13,13 @@ def draw():
 def title_screen():
     background(255, 255, 255)
     # titlecard
-    image(dinosaur, 50, 30, 100, 100)
     fill(0)
     textSize(27)
     text("""another
 generic
 sidescroller""", 160, 40)
     rect(40, 150, 520, 1)
-
+    image(dinosaur1, 50, 30, 96, 112)
     # singleplayer
     noFill()
     rect(30, 190, 540, 36)
@@ -45,10 +46,24 @@ sidescroller""", 160, 40)
         if mouseX >= 30 and mouseX <= 30 + 540:
             if mouseY >= 190 and mouseY <= 190 + 36:
                 print("The mouse is pressed and over the singleplayer button.")
-                background(0, 255, 0)
-            if mouseY >= 250 and mouseY <= 250 + 36:
+                noStroke()
+                fill(255, 255, 255)
+                rect(50, 30, 96, 112)
+                stroke(0)
+                if frameCount % 6 != 0:
+                    image(dinosaur1, 50, 30, 96, 112)
+                elif frameCount % 6 == 0:
+                    image(dinosaur2, 50, 30, 96, 112)
+            elif mouseY >= 250 and mouseY <= 250 + 36:
                 print("The mouse is pressed and over the multiplayer button.")
-                background(255, 0, 0)
-            if mouseY >= 310 and mouseY <= 480 + 36:
+                noStroke()
+                fill(255, 255, 255)
+                rect(50, 30, 96, 112)
+                stroke(0)
+                if frameCount % 6 != 0:
+                    image(dinosaur2, 50, 30, 96, 112)
+                elif frameCount % 6 == 0:
+                    image(dinosaur1, 50, 30, 96, 112)
+            elif mouseY >= 310 and mouseY <= 480 + 36:
                 print("lol")
-                background(0, 0, 255)
+                image(gallo, 0, 0, 640, 480)
