@@ -40,7 +40,8 @@ def test_collision():
 
 def draw():
     global CIV
-    background(255, 255, 255)
+    background('#f5f5f2')
+    stroke('#b0b0b0')
     rect(0, 415, 640, 1)
     player()
     score(CIV)
@@ -61,7 +62,7 @@ def draw():
 
 def score(value):
     another_synonym_for_score = value/4
-    fill(0)
+    fill('#b0b0b0')
     textSize(13)
     text("score:{}".format(another_synonym_for_score), 10, 10)
     noFill()
