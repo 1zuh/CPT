@@ -123,13 +123,9 @@ def addObstacle():
 def collision():
     global obs_pos_x, pos_y
     for obs in obs_pos_x:
-        if (obs >= 40 and obs <= 104):
+        if (obs >= 40 and obs <= 104) or (obs + 60 >= 40 and obs + 60 <= 104)::
             if pos_y >= 340 - 40 + 10:  # 10 to be a bit more forgiving
                 print("Collision detected. Game over.")
                 return 1
-        elif (obs + 60 >= 40 and obs + 60 <= 104):
-            if pos_y >= 340 - 40 + 10:  # 10 to be a bit more forgiving
-                print("Collision detected. Game over.")
-                return 1
-        else:
+            else:
                 return 0
